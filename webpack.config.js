@@ -8,6 +8,9 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
   },
+  resolve: {
+    root: [path.resolve('./src')],
+  },
   module: {
     loaders: [
       {
