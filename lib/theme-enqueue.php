@@ -11,17 +11,13 @@ if ( ! class_exists( 'Theme_Enqueue' ) ) :
 		}
 
 		function init() {
-			add_action( 'wp_enqueue_scripts', [ $this, 'bootstrap' ], 5 );
 			add_action( 'wp_enqueue_scripts', [ $this, 'theme' ], 20 );
 		}
 
-		function bootstrap() {
-			wp_enqueue_style( 'bootstrap4-css', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', [], '4a6' );
-		}
-
 		function theme() {
-			wp_enqueue_script( 'ReactTheme-js', get_template_directory_uri() . '/build/bundle.js', [ 'jquery' ], date( 'YmdHis' ), true );
+			wp_enqueue_script( 'ReactTheme-js', get_template_directory_uri() . '/build/bundle.js', [], date( 'YmdHis' ), true );
 			wp_localize_script( 'ReactTheme-js', 'RT_API', array(
+                // Add vars here
 				'root'            => esc_url_raw( rest_url() ),
 				'nonce'           => wp_create_nonce( 'wp_rest' ),
 				'siteName'        => get_bloginfo( 'name' ),
