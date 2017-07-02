@@ -16,14 +16,14 @@ if ( ! class_exists( 'Theme_Enqueue' ) ) :
 
 		function theme() {
 			wp_enqueue_script( 'ReactTheme-js', get_template_directory_uri() . '/build/bundle.js', [], date( 'YmdHis' ), true );
-			wp_localize_script( 'ReactTheme-js', 'RT_API', array(
+			wp_localize_script( 'ReactTheme-js', 'WORDPRESS', array(
                 // Add vars here
 				'root'            => esc_url_raw( rest_url() ),
 				'nonce'           => wp_create_nonce( 'wp_rest' ),
 				'siteName'        => get_bloginfo( 'name' ),
 				'siteDescription' => get_bloginfo( 'description' ),
 				'categories'      => $this->get_categories_with_links(),
-				'current_user'    => wp_get_current_user()
+				'currentUser'    => wp_get_current_user()
 			) );
 			wp_enqueue_style( get_stylesheet(), get_template_directory_uri() . '/build/bundle.css' );
 		}
