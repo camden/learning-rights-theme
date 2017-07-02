@@ -46,7 +46,8 @@
   },
   "scripts": {
     "precommit": "lint-staged",
-    "build": "webpack"
+    "build": "webpack",
+    "watch": "webpack --progress --colors --watch"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [

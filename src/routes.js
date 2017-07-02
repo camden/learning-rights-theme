@@ -1,10 +1,14 @@
 import React from 'react';
-import { Route } from 'react-router';
+import { Route } from 'react-router-dom';
 
 import Main from './components/Main';
 
-export default (
-  <div>
-    <Route path="/" component={Main} />,
-  </div>
-);
+const Routes = () => {
+  return (
+    <div>
+      <Route path="/" component={Main} />
+    </div>
+  );
+};
+
+export default Routes;
